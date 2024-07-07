@@ -29,7 +29,7 @@ def RMPC_controller(y, y_obstacle_max, N):
     return u, y
 
 def CMPC_controller(y, y_obstacle_max, N, Pc = 0.25):
-    u0 = max(0,y_obstacle_max) * Pc / (Pc + 10 +1e-6)
+    u0 = max(0,y_obstacle_max) * Pc / (Pc + N -1 +1e-6)
     un = [u0] + [0] * (N-1)
     uc = [u0] + [u0 / Pc] * (N-1)
 
